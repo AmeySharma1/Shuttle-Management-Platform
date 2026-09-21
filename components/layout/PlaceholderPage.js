@@ -1,0 +1,5 @@
+import Link from 'next/link';
+import EmptyState from '@/components/ui/EmptyState';
+
+/** Placeholder content for a route built in a later prompt. */
+export default function PlaceholderPage({ title, description, icon: Icon }) { return <section className="space-y-6"><div><p className="text-sm text-[var(--foreground-muted)]">CampusRide workspace</p><h2 className="mt-1 text-2xl font-bold text-[var(--foreground-heading)]">{title}</h2><p className="mt-2 text-sm text-[var(--foreground-muted)]">{description}</p></div><div className="saas-card"><EmptyState icon={Icon} title="Nothing here yet" message="This area will be ready in a later update." action={<Link href="/" className="inline-flex items-center justify-center rounded-xl bg-[var(--btn-primary-bg)] px-6 py-2.5 text-base font-medium text-[var(--btn-primary-text)] transition-colors hover:bg-[var(--btn-primary-hover)]">Go home</Link>} /></div></section>; }

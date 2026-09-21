@@ -1,6 +1,7 @@
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { Toaster } from "sonner";
+import RoleProvider from "@/components/layout/RoleProvider";
 import "./globals.css";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -19,7 +20,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${jakarta.variable} h-full`} suppressHydrationWarning>
       <body className="min-h-full font-[family-name:var(--font-jakarta)] antialiased">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
-          {children}
+          <RoleProvider>{children}</RoleProvider>
           <Toaster
             position="top-right"
             richColors
