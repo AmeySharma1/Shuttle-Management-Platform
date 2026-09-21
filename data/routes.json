@@ -1,0 +1,37 @@
+[
+  {
+    "id": "r1",
+    "name": "Main Gate Express",
+    "stopIds": ["s1", "s7", "s2", "s8"],
+    "driverId": "d1",
+    "active": true
+  },
+  {
+    "id": "r2",
+    "name": "Hostel Loop",
+    "stopIds": ["s5", "s8", "s6", "s4"],
+    "driverId": "d2",
+    "active": true
+  },
+  {
+    "id": "r3",
+    "name": "Campus Circular",
+    "stopIds": ["s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8"],
+    "driverId": "d3",
+    "active": true
+  },
+  {
+    "id": "r4",
+    "name": "Library Shuttle",
+    "stopIds": ["s1", "s2", "s5"],
+    "driverId": null,
+    "active": true
+  },
+  {
+    "id": "r5",
+    "name": "Night Connector",
+    "stopIds": ["s1", "s5", "s8"],
+    "driverId": null,
+    "active": false
+  }
+]

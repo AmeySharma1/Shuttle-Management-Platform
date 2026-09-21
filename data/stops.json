@@ -1,0 +1,10 @@
+[
+  { "id": "s1", "name": "Main Gate" },
+  { "id": "s2", "name": "Library" },
+  { "id": "s3", "name": "Data Centre" },
+  { "id": "s4", "name": "Parking" },
+  { "id": "s5", "name": "Hostel Block A" },
+  { "id": "s6", "name": "Sports Complex" },
+  { "id": "s7", "name": "Admin Block" },
+  { "id": "s8", "name": "Cafeteria" }
+]

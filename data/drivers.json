@@ -1,0 +1,52 @@
+[
+  {
+    "id": "d1",
+    "name": "Rajesh Kumar",
+    "phone": "+91-98765-43210",
+    "vehicle": { "plate": "KA-01-AB-1234", "model": "Force Traveller", "capacity": 12 },
+    "shifts": [
+      { "dayOffset": 0, "start": "07:00", "end": "15:00", "breaks": [{ "start": "11:00", "end": "11:30" }], "status": "on-duty" }
+    ]
+  },
+  {
+    "id": "d2",
+    "name": "Sunil Patil",
+    "phone": "+91-98765-43211",
+    "vehicle": { "plate": "KA-01-CD-5678", "model": "Tata Winger", "capacity": 10 },
+    "shifts": [
+      { "dayOffset": 0, "start": "08:00", "end": "16:00", "breaks": [], "status": "on-duty" }
+    ]
+  },
+  {
+    "id": "d3",
+    "name": "Pradeep Singh",
+    "phone": "+91-98765-43212",
+    "vehicle": { "plate": "KA-01-EF-9012", "model": "Force Traveller", "capacity": 12 },
+    "shifts": [
+      { "dayOffset": 0, "start": "09:00", "end": "17:00", "breaks": [{ "start": "13:00", "end": "13:30" }], "status": "on-break" }
+    ]
+  },
+  {
+    "id": "d4",
+    "name": "Amit Sharma",
+    "phone": "+91-98765-43213",
+    "vehicle": { "plate": "KA-01-GH-3456", "model": "Tata Winger", "capacity": 10 },
+    "shifts": [
+      { "dayOffset": 0, "start": "06:00", "end": "14:00", "breaks": [{ "start": "10:00", "end": "10:30" }], "status": "off-duty" }
+    ]
+  },
+  {
+    "id": "d5",
+    "name": "Vikram Reddy",
+    "phone": "+91-98765-43214",
+    "vehicle": { "plate": "KA-01-IJ-7890", "model": "Mahindra Supro", "capacity": 8 },
+    "shifts": []
+  },
+  {
+    "id": "d6",
+    "name": "Manoj Verma",
+    "phone": "+91-98765-43215",
+    "vehicle": { "plate": "KA-01-KL-2345", "model": "Mahindra Supro", "capacity": 8 },
+    "shifts": []
+  }
+]
