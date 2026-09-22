@@ -7,7 +7,7 @@ export default function StatusBadge({ status, type = 'booking', className }) {
 
   if (!styles) {
     return (
-      <span className={cn('inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-white/5 text-[#7E87A6] border border-white/10', className)}>
+      <span className={cn('inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-[var(--surface-nested)] text-[var(--foreground-muted)] border border-[var(--card-border)]', className)}>
         {status}
       </span>
     );

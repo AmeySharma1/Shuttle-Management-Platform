@@ -102,6 +102,10 @@ Business rules live in `lib/statusRules.js` and within service validation routin
 
 ## 4. Algorithmic Complexity & Performance
 
+## Demo Tips
+
+Choose a role on the welcome screen first. For the admin demo, open Overview to see the stats and chart, then Bookings to search and inspect a booking, Drivers to view the timeline, and Routes to add or assign a route. For the commuter demo, book a ride and open My trips. For the driver demo, open My day and start duty before working with a trip.
+
 | Operation | Implementation Details | Time Complexity | Space Complexity |
 |---|---|---|---|
 | **Lookup by ID** | `Map.get(id)` in `storage.js` | $\mathcal{O}(1)$ | $\mathcal{O}(1)$ |

@@ -17,7 +17,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${jakarta.variable} h-full`} suppressHydrationWarning>
+    <html lang="en" data-scroll-behavior="smooth" className={`${jakarta.variable} h-full`} suppressHydrationWarning>
       <body className="min-h-full font-[family-name:var(--font-jakarta)] antialiased">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <RoleProvider>{children}</RoleProvider>
