@@ -6,7 +6,7 @@
  * Components call these functions — never the seed JSON directly.
  */
 
-import { initStore, getAll, getById, upsert } from '@/lib/storage';
+import { initStore, getAll, getById, remove, upsert } from '@/lib/storage';
 import { resolveBookingDates } from '@/lib/seed';
 import { ServiceError } from '@/lib/errors';
 import { BOOKING_STATUS, PAGE_SIZE, TRIP_DURATION_MIN } from '@/lib/constants';
@@ -25,7 +25,13 @@ function delay() {
 
 /** Ensure the store is initialized with seed data (idempotent). */
 function ensureInit() {
-  initStore(NS, resolveBookingDates(rawBookings));
+  const seedBookings = resolveBookingDates(rawBookings);
+  initStore(NS, seedBookings);
+  const currentBookings = getAll(NS);
+  if (currentBookings.some((booking) => booking.id === 'BK-1030')) {
+    currentBookings.forEach((booking) => remove(NS, booking.id));
+    seedBookings.forEach((booking) => upsert(NS, booking));
+  }
 }
 
 const stopsMap = new Map(rawStops.map((s) => [s.id, s.name]));
@@ -96,7 +102,7 @@ export async function getBookings({
     if (sortBy === 'time') {
       cmp = timeToMinutes(a.time) - timeToMinutes(b.time);
     } else if (sortBy === 'date') {
-      cmp = a.date.localeCompare(b.date);
+      cmp = `${a.date} ${a.time}`.localeCompare(`${b.date} ${b.time}`);
     } else if (sortBy === 'riderName') {
       cmp = a.riderName.localeCompare(b.riderName);
     } else if (sortBy === 'status') {
@@ -226,6 +232,31 @@ export async function createBooking(data) {
 
   upsert(NS, booking);
   return booking;
+}
+
+/** Assign or remove a driver from a booking. */
+export async function assignDriverToBooking(id, driverId) {
+  await delay();
+  ensureInit();
+
+  const booking = getById(NS, id);
+  if (!booking) throw new ServiceError(`Booking ${id} not found.`, 'NOT_FOUND');
+
+  if (driverId) {
+    const { getDriverById } = await import('@/services/driverService');
+    await getDriverById(driverId, booking.date);
+  }
+
+  booking.driverId = driverId || null;
+  if (booking.driverId && booking.status === BOOKING_STATUS.REQUESTED) {
+    booking.status = BOOKING_STATUS.ACCEPTED;
+  }
+  if (!booking.driverId && booking.status === BOOKING_STATUS.ACCEPTED) {
+    booking.status = BOOKING_STATUS.REQUESTED;
+  }
+
+  upsert(NS, booking);
+  return enrichBooking(booking);
 }
 
 /**

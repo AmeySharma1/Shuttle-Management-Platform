@@ -173,12 +173,66 @@ body {
   line-height: 1.6;
 }
 
+/* Shared workspace atmosphere and structure. */
+.workspace-shell {
+  background-image:
+    linear-gradient(to right, var(--divider) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--divider) 1px, transparent 1px),
+    radial-gradient(circle at 85% 0%, var(--bg-glow), transparent 32%);
+  background-size: 72px 72px, 72px 72px, auto;
+}
+
+.workspace-sidebar {
+  background-image: linear-gradient(180deg, var(--surface-card), color-mix(in srgb, var(--surface-card) 86%, var(--accent-blue)));
+}
+
+.workspace-content {
+  position: relative;
+}
+
+.workspace-content::before {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: '';
+  background: linear-gradient(135deg, var(--bg-glow), transparent 28%);
+  opacity: 0.45;
+}
+
+.workspace-header {
+  box-shadow: 0 1px 0 var(--divider), 0 14px 30px color-mix(in srgb, var(--bg-main) 35%, transparent);
+}
+
+.workspace-main {
+  position: relative;
+  z-index: 1;
+}
+
+.page-intro {
+  position: relative;
+  overflow: hidden;
+  border-left: 3px solid var(--accent-blue);
+  padding-left: 1rem;
+}
+
+.page-intro::after {
+  position: absolute;
+  top: -50px;
+  right: 8%;
+  width: 160px;
+  height: 160px;
+  border: 1px solid var(--icon-border);
+  border-radius: 999px;
+  content: '';
+  opacity: 0.4;
+}
+
 /* SaaS Card container */
 .saas-card {
   background-color: var(--surface-card);
   border: 1px solid var(--card-border);
   box-shadow: var(--card-shadow);
-  border-radius: 16px;
+  border-radius: 18px;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
